@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="description" content="RESTful Web Service">
+      <meta name="keywords" content="docker,RestFUL,WEB SERVICE,python,flask,restaurants">
+      <meta name="author" content="Anil Bandari">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+      <title>Restaurants</title>
+      <style>     
+        html, body {
+            padding:10px;
+            margin:10px;
+        }
+        header h1 {
+            padding-bottom: 20px;
+            text-align: center;
+        }
+         table {
+            border-collapse: collapse;
+            width: 100%;
+         }
+         th, td {
+            text-align: left;
+            padding: 8px;
+         }
+         tr:nth-child(even){
+             background-color: #f2f2f2
+         }
+         th {
+            background-color: #4CAF50;
+            color: white;
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+          <h1>List of Restaurants</h1>
+      </header>
+      <main>
+         <table class="table table-dark">
+            <thead>
+               <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Food Type</th>
+               </tr>
+            </thead>
+            <tbody>
+               {% for item in items %}
+               <tr>
+                  <td scope="row"> {{ item.id }} </td>
+                  <td scope="row"> {{ item.name }} </td>
+                  <td scope="row"> {{ item.address }} </td>
+                  <td scope="row"> {{ item.address_line_2 }} </td>
+                  <td scope="row"> {{ item.rating }} </td>
+                  <td scope="row"> {{ item.type_of_food }} </td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </main>
+   </body>
+</html>
