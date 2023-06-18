@@ -1,0 +1,16 @@
+server {
+	listen	80;
+	server_name {{name_domain}}.local www.{{name_domain}}.local;
+	return 301 https://$host$request_uri;
+}
+
+
+server {
+
+	listen	443 ssl;
+	ssl on;
+	ssl_certificate {{path_certificate}}certificate.crt;
+        ssl_certificate_key {{path_certificate}}certificate.key;
+        ssl_session_timeout 5m;
+ 	return 301 https://{{name_domain}}.local$request_uri;
+}
